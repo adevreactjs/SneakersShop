@@ -3,6 +3,21 @@
 function App() {
   return (
     <div className="wrapper clear">
+      <div className="overlay">
+        <div className="drawer">
+          <h2>Корзина</h2>
+          <div class="cartItem d-flex align-center">
+            <img className="mr-20" width={70} height={70} src="/img/cross.jpg" alt="img"/>
+            <div className="mr-20">
+              <p className="mb-5">Мужские Кроссовки Nike Air Max 270</p>
+              <b>12 999 руб.</b>
+            </div>
+            <img src="/img/btn-delete.svg" alt="img"/>
+
+          </div>
+        </div>
+      </div>
+
       <header className="d-flex justify-between align-center" >
        <div className="headerLeft d-flex align-center">
        <img width={40} height={40} src="/img/logo.png"></img>
