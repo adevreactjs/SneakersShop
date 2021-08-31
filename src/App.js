@@ -3,6 +3,10 @@ import Header from './components/Header';
 import Drawer from './components/Drawer';
 
 function App() {
+
+  const arr = [{name: "Мужские Кроссовки Nike Blazer Mid Suede", price: 12999}, 
+               {name: "Мужские Кроссовки Nike Air Max 270", price: 14999}]
+
   return (
     <div className="wrapper clear">
       <Drawer />
@@ -18,7 +22,9 @@ function App() {
         </div>
 
         <div className="d-flex">
-          <Card />
+          {arr.map(val => (
+            <Card/>
+          ))}
         </div>
       </div>
     </div>
