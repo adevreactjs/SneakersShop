@@ -3,9 +3,16 @@ import Header from './components/Header';
 import Drawer from './components/Drawer';
 
 function App() {
-
-  const arr = [{name: "Мужские Кроссовки Nike Blazer Mid Suede", price: 12999}, 
-               {name: "Мужские Кроссовки Nike Air Max 270", price: 14999}]
+  const arr = [
+    { title: 'Мужские Кроссовки Nike Blazer Mid Suede', price: "12999 руб", urlImage: '/img/cross.jpg' },
+    { title: 'Мужские Кроссовки Nike Air Max 270', price: 13999, urlImage: '/img/cross-2.jpg' },
+    {
+      title: 'Мужские Кроссовки Nike Blazer Mid Suede',
+      price: 15999,
+      urlImage: '/img/cross-3.jpg',
+    },
+    { title: 'Кроссовки Puma X Aka Boku Future Rider', price: 7999, urlImage: '/img/cross-4.jpg' },
+  ];
 
   return (
     <div className="wrapper clear">
@@ -22,8 +29,8 @@ function App() {
         </div>
 
         <div className="d-flex">
-          {arr.map(val => (
-            <Card/>
+          {arr.map((obj) => (
+            <Card title={obj.title} price={obj.price} urlImage={obj.urlImage} />
           ))}
         </div>
       </div>
