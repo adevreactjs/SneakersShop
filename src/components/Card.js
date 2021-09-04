@@ -1,4 +1,13 @@
+import React from 'react'
+
 function Card(props) {
+
+  const [addToCartBtn, setAddToCardBtn] = React.useState(false)
+
+  const addCard = () => {
+    setAddToCardBtn(!addToCartBtn)
+  }
+
     return (
         <div className="card">
         <img src="/img/heart-liked.png" alt="heart-liked" />
@@ -9,9 +18,7 @@ function Card(props) {
             <p>Цена:</p>
             <b>{props.price}</b>
           </div>
-          <button className="button">
-            <img width={11} height={11} src="/img/plus.svg" alt="plus" />
-          </button>
+            <img onClick={addCard} width={32} height={32} src={addToCartBtn ? "/img/addToCart-btn.svg" : "/img/plus.svg"} alt="plus" />
         </div>
       </div>
     )    

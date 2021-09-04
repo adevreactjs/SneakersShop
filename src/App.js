@@ -4,14 +4,10 @@ import Drawer from './components/Drawer';
 
 function App() {
   const arr = [
-    { title: 'Мужские Кроссовки Nike Blazer Mid Suede', price: "12999 руб", urlImage: '/img/cross.jpg' },
-    { title: 'Мужские Кроссовки Nike Air Max 270', price: 13999, urlImage: '/img/cross-2.jpg' },
-    {
-      title: 'Мужские Кроссовки Nike Blazer Mid Suede',
-      price: 15999,
-      urlImage: '/img/cross-3.jpg',
-    },
-    { title: 'Кроссовки Puma X Aka Boku Future Rider', price: 7999, urlImage: '/img/cross-4.jpg' },
+    {title: 'Мужские Кроссовки Nike Blazer Mid Suede', price: "12999 руб", urlImage: '/img/cross.jpg'},
+    {title: 'Мужские Кроссовки Nike Air Max 270', price: 13999, urlImage: '/img/cross-2.jpg' },
+    {title: 'Мужские Кроссовки Nike Blazer Mid Suede', price: 15999, urlImage: '/img/cross-3.jpg'},
+    {title: 'Кроссовки Puma X Aka Boku Future Rider', price: 7999, urlImage: '/img/cross-4.jpg' },
   ];
 
   return (
