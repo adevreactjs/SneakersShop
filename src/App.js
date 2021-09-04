@@ -1,19 +1,26 @@
+import React from 'react';
+import axios from 'axios';
 import Card from './components/Card';
 import Header from './components/Header';
 import Drawer from './components/Drawer';
 
 function App() {
-  const arr = [
-    {title: 'Мужские Кроссовки Nike Blazer Mid Suede', price: "12999 руб", urlImage: '/img/cross.jpg'},
-    {title: 'Мужские Кроссовки Nike Air Max 270', price: 13999, urlImage: '/img/cross-2.jpg' },
-    {title: 'Мужские Кроссовки Nike Blazer Mid Suede', price: 15999, urlImage: '/img/cross-3.jpg'},
-    {title: 'Кроссовки Puma X Aka Boku Future Rider', price: 7999, urlImage: '/img/cross-4.jpg' },
-  ];
+  const [items, setItems] = React.useState([])
+  const [openCart, setOpenCart] = React.useState(false)
 
+  React.useEffect(() => {
+    axios.get('https://6133bde37859e700176a3795.mockapi.io/items').then((res) => {
+      setItems(res.data)
+
+    }).catch(function (error) {
+      console.log(error);
+    })
+  }, [])
+  
   return (
-    <div className="wrapper clear">
-      <Drawer />
-      <Header />
+    <div className="wrapper clear"> 
+      {openCart && <Drawer onClose = {() => setOpenCart(false)}/>}
+      <Header openCart ={() => setOpenCart(true)} />
 
       <div className="content p-40">
         <div className="d-flex align-center justify-between mb-40">
@@ -25,7 +32,7 @@ function App() {
         </div>
 
         <div className="d-flex">
-          {arr.map((obj) => (
+          {items.map((obj) => (
             <Card title={obj.title} price={obj.price} urlImage={obj.urlImage} />
           ))}
         </div>

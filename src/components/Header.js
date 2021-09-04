@@ -1,4 +1,4 @@
-function Header() {
+function Header(props) {
     return (
         <header className="d-flex justify-between align-center">
         <div className="headerLeft d-flex align-center">
@@ -40,7 +40,7 @@ function Header() {
                   strokeLinejoin="round"
                 />
               </svg>
-              <span className="mr-30">1200 руб</span>
+              <span onClick={props.openCart} className="mr-30 cu-p">1200 руб</span>
             </li>
             <li>
               <svg
