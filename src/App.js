@@ -6,6 +6,7 @@ import Drawer from './components/Drawer';
 
 function App() {
   const [items, setItems] = React.useState([])
+  const [cartItems, setCartItems] = React.useState([])
   const [openCart, setOpenCart] = React.useState(false)
 
   React.useEffect(() => {
@@ -16,10 +17,14 @@ function App() {
       console.log(error);
     })
   }, [])
-  
+
+  const addToCart = (item) => {
+    setCartItems(prev => [...prev, item])
+  }
+
   return (
     <div className="wrapper clear"> 
-      {openCart && <Drawer onClose = {() => setOpenCart(false)}/>}
+      {openCart && <Drawer items={cartItems} onClose = {() => setOpenCart(false)}/>}
       <Header openCart ={() => setOpenCart(true)} />
 
       <div className="content p-40">
@@ -33,7 +38,7 @@ function App() {
 
         <div className="d-flex">
           {items.map((obj) => (
-            <Card title={obj.title} price={obj.price} urlImage={obj.urlImage} />
+            <Card title={obj.title} price={obj.price} urlImage={obj.urlImage} onPlus ={addToCart}/>
           ))}
         </div>
       </div>
