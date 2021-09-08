@@ -1,3 +1,4 @@
+import {Link} from 'react-router-dom'
 function Header(props) {
     return (
         <header className="d-flex justify-between align-center">
@@ -43,7 +44,9 @@ function Header(props) {
               <span onClick={props.openCart} className="mr-30 cu-p">1200 руб</span>
             </li>
             <li>
-              <img src="img/favorite.svg" alt="favorite"/>
+              <Link to="/favorit">              
+                <img src="img/favorite.svg" alt="favorite"/>
+              </Link>
             </li>
             <li>
               <svg
