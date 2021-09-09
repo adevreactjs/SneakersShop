@@ -1,4 +1,4 @@
-function Drawer({ onClose, items = [], removeItem }) {
+function Drawer({ onClose, items, removeItem }) {
   return (
     <div className="overlay">
       <div className="drawer">

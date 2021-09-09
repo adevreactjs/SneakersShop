@@ -23,17 +23,26 @@ function App() {
     });
 
     axios.get('https://6133bde37859e700176a3795.mockapi.io/favorites').then((res) => {
-        setFavorit(res.data);
+      setFavorit(res.data);
     });
-    
   }, []);
 
-     
-
   const addToCart = (item) => {
-    axios.post('https://6133bde37859e700176a3795.mockapi.io/cart', item);
-    setCartItems((prev) => [...prev, item]);
 
+
+    try {
+      if (cartItems.find((obj) => Number(obj.id) === Number(item.id))){
+        axios.delete(`https://6133bde37859e700176a3795.mockapi.io/cart/${item.id}`);
+         setCartItems((prev) => prev.filter((obj) => Number(obj.id) !== Number(item.id)));
+        
+      } else {
+        axios.post('https://6133bde37859e700176a3795.mockapi.io/cart', item);
+        setCartItems((prev) => [...prev, item]);
+        console.log('cartItems');
+      }
+    } catch (error) {
+      alert('Не удалось добавить в корзину');
+    }
   };
 
   const setInputSearchValue = (event) => {
@@ -47,14 +56,20 @@ function App() {
   };
 
   const addToFavorite = async (item) => {
-    if(favorit.find(obj => obj.id === item.id)) {
-      axios.delete(`https://6133bde37859e700176a3795.mockapi.io/favorites/${item.id}`);
-      setFavorit(prev => prev.filter(obj => obj.id !== item.id))
-    } else {
-      const {data} = await axios.post(`https://6133bde37859e700176a3795.mockapi.io/favorites/`, item);
-      setFavorit((prev) => [...prev, data]);
+    try {
+      if (favorit.find((obj) => obj.id === item.id)) {
+        axios.delete(`https://6133bde37859e700176a3795.mockapi.io/favorites/${item.id}`);
+        setFavorit((prev) => prev.filter((obj) => obj.id !== item.id));
+      } else {
+        const { data } = await axios.post(
+          `https://6133bde37859e700176a3795.mockapi.io/favorites/`,
+          item,
+        );
+        setFavorit((prev) => [...prev, data]);
+      }
+    } catch (error) {
+      alert('Не удалось добавить в фавориты');
     }
-    
   };
 
   return (
@@ -75,6 +90,7 @@ function App() {
           addToCart={addToCart}
           setFavorits={setFavorit}
           addToFavorite={addToFavorite}
+          cartItems={cartItems}
         />
       </Route>
 

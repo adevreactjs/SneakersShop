@@ -1,11 +1,11 @@
 import React from 'react'
-function Card({title, price, urlImage, onPlus, addToFavorite, favorited, id}) {
+function Card({title, price, urlImage, onPlus, addToFavorite, favorited, id, added}) {
 
-  const [addToCartBtn, setAddToCardBtn] = React.useState(false)
+  const [addToCartBtn, setAddToCardBtn] = React.useState(added)
   const [onFavorite, setFavorite] = React.useState(favorited)
 
   const addCard = () => {
-    onPlus({title, price, urlImage})
+    onPlus({id, title, price, urlImage})
     setAddToCardBtn(!addToCartBtn)
   }
 
