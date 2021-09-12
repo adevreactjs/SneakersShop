@@ -1,6 +1,17 @@
+import React from 'react';
 import Card from '../components/Card';
+import Loading from '../components/PreLoader';
 
-function Home({items, searchValue, setInputSearchValue, addToCart, setFavorits, addToFavorite, cartItems}) {
+function Home({
+  items,
+  searchValue,
+  setInputSearchValue,
+  addToCart,
+  setFavorits,
+  addToFavorite,
+  cartItems,
+  isLoading,
+}) {
   return (
     <div className="content p-40">
       <div className="d-flex align-center justify-between mb-40">
@@ -10,9 +21,8 @@ function Home({items, searchValue, setInputSearchValue, addToCart, setFavorits, 
           <input onChange={setInputSearchValue} value={searchValue} placeholder="Поиск..."></input>
         </div>
       </div>
-
       <div className="d-flex">
-        {items
+        {isLoading ? (items.map(obj =>(<div key={obj.id} className="card"><Loading/></div>))) : (items
           .filter((item) => item.title.toLowerCase().includes(searchValue.toLowerCase()))
           .map((obj) => (
             <Card
@@ -24,9 +34,10 @@ function Home({items, searchValue, setInputSearchValue, addToCart, setFavorits, 
               favItems={setFavorits}
               addToFavorite={addToFavorite}
               id={obj.id}
-              added={cartItems.some(item => Number(item.id) === Number(obj.id))}
+              added={cartItems.some((item) => Number(item.id) === Number(obj.id))}
             />
-          ))}
+          )))
+        }
       </div>
     </div>
   );
