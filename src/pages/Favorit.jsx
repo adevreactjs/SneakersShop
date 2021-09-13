@@ -1,8 +1,9 @@
 import React from 'react';
 import Card from '../components/Card';
+import AppContext from '../components/context';
 
-function Favorit({addToFavorite, favorit}) {
-
+function Favorit({addToFavorite}) {
+const {favorit} = React.useContext(AppContext)
   return (
     <div className="content p-40">
       <div className="d-flex">

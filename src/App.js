@@ -5,6 +5,7 @@ import Drawer from './components/Drawer';
 import Home from './pages/Home';
 import Favorit from './pages/Favorit';
 import { Route } from 'react-router-dom';
+import AppContext from './components/context';
 
 function App() {
   const [items, setItems] = React.useState([]);
@@ -72,6 +73,7 @@ function App() {
   };
 
   return (
+    <AppContext.Provider value={{favorit}}>
     <div className="wrapper clear">
       {openCart && (
         <Drawer
@@ -95,9 +97,11 @@ function App() {
       </Route>
 
       <Route path="/favorit" exact>
-        <Favorit favorit={favorit} addToFavorite={addToFavorite} setFavorit={setFavorit} />
+        <Favorit addToFavorite={addToFavorite} setFavorit={setFavorit} />
       </Route>
     </div>
+    </AppContext.Provider>
+
   );
 }
 
