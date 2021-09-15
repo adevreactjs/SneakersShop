@@ -1,6 +1,8 @@
 import React from 'react';
+
 import Card from '../components/Card';
 import Loading from '../components/PreLoader';
+
 
 function Home({
   items,
@@ -9,9 +11,10 @@ function Home({
   addToCart,
   setFavorits,
   addToFavorite,
-  cartItems,
   isLoading,
 }) {
+
+
   return (
     <div className="content p-40">
       <div className="d-flex align-center justify-between mb-40">
@@ -34,7 +37,6 @@ function Home({
               favItems={setFavorits}
               addToFavorite={addToFavorite}
               id={obj.id}
-              added={cartItems.some((item) => Number(item.id) === Number(obj.id))}
             />
           )))
         }
@@ -43,3 +45,4 @@ function Home({
   );
 }
 export default Home;
+

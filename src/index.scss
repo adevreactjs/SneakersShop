@@ -114,6 +114,46 @@ header {
     overflow: auto;
   }
 
+  .emptyCart {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .emptyCart--title {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+
+      p {
+        font-family: Inter;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 22px;
+        line-height: 27px;
+      }
+      span {
+        font-family: Inter;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 24px;
+        opacity: 0.4;
+      }
+      .arrow {
+        display: block;
+        margin-right: 20px;
+
+      }
+      
+
+      
+
+      text-align: center;
+    }
+  }
+
   .cartTotalBlock {
     position: absolute;
     width: 325px;

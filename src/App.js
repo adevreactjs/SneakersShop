@@ -55,6 +55,10 @@ function App() {
     setCartItems((prev) => prev.filter((item) => item.id !== id));
   };
 
+  const isItemAdd = (id) => {
+    return cartItems.some((obj) => Number(obj.id) === Number(id))
+  }
+
   const addToFavorite = async (item) => {
     try {
       if (favorit.find((obj) => obj.id === item.id)) {
@@ -73,7 +77,7 @@ function App() {
   };
 
   return (
-    <AppContext.Provider value={{favorit}}>
+    <AppContext.Provider value={{favorit, isItemAdd, cartItems}}>
     <div className="wrapper clear">
       {openCart && (
         <Drawer

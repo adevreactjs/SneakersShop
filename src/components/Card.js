@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
-function Card({ title, price, urlImage, onPlus, addToFavorite, favorited, id, added }) {
-  const [addToCartBtn, setAddToCardBtn] = React.useState(added);
+import AppContext from './context';
+
+function Card({ title, price, urlImage, onPlus, addToFavorite, favorited, id }) {
   const [onFavorite, setFavorite] = React.useState(favorited);
+  const {isItemAdd} = useContext(AppContext)
 
   const addCard = () => {
     onPlus({ id, title, price, urlImage });
-    setAddToCardBtn(!addToCartBtn);
   };
 
   const favoriteClick = () => {
@@ -32,7 +33,7 @@ function Card({ title, price, urlImage, onPlus, addToFavorite, favorited, id, ad
           onClick={addCard}
           width={32}
           height={32}
-          src={addToCartBtn ? '/img/addToCart-btn.svg' : '/img/plus.svg'}
+          src={isItemAdd(id) ? '/img/addToCart-btn.svg' : '/img/plus.svg'}
           alt="plus"
         />
       </div>
