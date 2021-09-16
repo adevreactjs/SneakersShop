@@ -1,5 +1,6 @@
 import React from 'react';
 import AppContext from './context';
+import Info from './Info';
 
 function Drawer({ onClose, items, removeItem }) {
   const { cartItems } = React.useContext(AppContext);
@@ -51,17 +52,7 @@ function Drawer({ onClose, items, removeItem }) {
           </ul>
           </div></> )
           
-          : (<div className="emptyCart">
-          <img className="box" width={120} height={120} src="/img/box.svg" alt="img" />
-          <div class="emptyCart--title">
-            <p>Корзина пустая</p>
-            <span>Добавьте хотя бы одну пару кроссовок, чтобы сделать заказ.</span>
-          </div>
-
-          <button onClick={onClose}  className="greenButton">
-            <img className="arrow" src="/img/arrow-back.png" alt="arrow" /> Вернуться назад
-          </button>
-        </div>)
+          : <Info/>
        }
 
        
