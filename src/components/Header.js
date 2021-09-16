@@ -1,9 +1,12 @@
 import {Link} from 'react-router-dom'
+
 function Header(props) {
     return (
         <header className="d-flex justify-between align-center">
         <div className="headerLeft d-flex align-center">
+        <Link to="/">
           <img width={40} height={40} src="/img/logo.png" alt="img"></img>
+          </Link>
           <div className="headerInfo">
             <h3 className="text-uppercase">React sneakers</h3>
             <p>Магазин лучших кросcовок</p>

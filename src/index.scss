@@ -119,6 +119,7 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 200px;
 
     .emptyCart--title {
       display: flex;
@@ -141,17 +142,16 @@ header {
         line-height: 24px;
         opacity: 0.4;
       }
-      .arrow {
-        display: block;
-        margin-right: 20px;
 
-      }
-      
-
-      
-
-      text-align: center;
     }
+    .greenButton {
+      position: relative;
+    img {
+      position: absolute;
+      top: 21px;
+      left: 30px;
+    }
+  }
   }
 
   .cartTotalBlock {

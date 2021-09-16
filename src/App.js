@@ -21,12 +21,10 @@ function App() {
       const favResponse = await axios.get('https://6133bde37859e700176a3795.mockapi.io/favorites');
       const itemsResponse = await axios.get('https://6133bde37859e700176a3795.mockapi.io/items');
 
-
       setCartItems(cartResponse.data);
       setFavorit(favResponse.data);
       setItems(itemsResponse.data);
       setLoading(false);
-
     }
     fetchData();
   }, []);
@@ -56,8 +54,8 @@ function App() {
   };
 
   const isItemAdd = (id) => {
-    return cartItems.some((obj) => Number(obj.id) === Number(id))
-  }
+    return cartItems.some((obj) => Number(obj.id) === Number(id));
+  };
 
   const addToFavorite = async (item) => {
     try {
@@ -77,35 +75,35 @@ function App() {
   };
 
   return (
-    <AppContext.Provider value={{favorit, isItemAdd, cartItems}}>
-    <div className="wrapper clear">
-      {openCart && (
-        <Drawer
-          items={cartItems}
-          onClose={() => setOpenCart(false)}
-          removeItem={removeItemsInCart}
-        />
-      )}
-      <Header openCart={() => setOpenCart(true)} />
-      <Route path="/" exact>
-        <Home
-          items={items}
-          searchValue={searchValue}
-          setInputSearchValue={setInputSearchValue}
-          addToCart={addToCart}
-          setFavorits={setFavorit}
-          addToFavorite={addToFavorite}
-          cartItems={cartItems}
-          isLoading={isLoading}
-        />
-      </Route>
+    <AppContext.Provider value={{ favorit, isItemAdd, cartItems }}>
+      <div className="wrapper clear">
+        {openCart && (
+          <Drawer
+            items={cartItems}
+            onClose={() => setOpenCart(false)}
+            removeItem={removeItemsInCart}
+          />
+        )}
+          <Header openCart={() => setOpenCart(true)} />
 
-      <Route path="/favorit" exact>
-        <Favorit addToFavorite={addToFavorite} setFavorit={setFavorit} />
-      </Route>
-    </div>
+        <Route path="/" exact>
+          <Home
+            items={items}
+            searchValue={searchValue}
+            setInputSearchValue={setInputSearchValue}
+            addToCart={addToCart}
+            setFavorits={setFavorit}
+            addToFavorite={addToFavorite}
+            cartItems={cartItems}
+            isLoading={isLoading}
+          />
+        </Route>
+
+        <Route path="/favorit" exact>
+          <Favorit addToFavorite={addToFavorite} setFavorit={setFavorit} />
+        </Route>
+      </div>
     </AppContext.Provider>
-
   );
 }
 
