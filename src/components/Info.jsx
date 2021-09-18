@@ -1,15 +1,15 @@
 import React from 'react';
 import AppContext from './context';
 
-function Info({title, description}) {
+function Info({title, description, image}) {
 
     const {setOpenCart} = React.useContext(AppContext)
   return (
     <div className="emptyCart">
-      <img className="box" width={120} height={120} src="/img/box.svg" alt="img" />
+      <img className="box" width={120} height={120} src={image} alt="img" />
       <div class="emptyCart--title">
-        <p>Корзина пустая</p>
-        <span>Добавьте хотя бы одну пару кроссовок, чтобы сделать заказ.</span>
+        <p>{title}</p>
+        <span>{description}</span>
       </div>
 
       <button onClick={()=> setOpenCart(false)} className="greenButton">

@@ -37,7 +37,6 @@ function App() {
       } else {
         axios.post('https://6133bde37859e700176a3795.mockapi.io/cart', item);
         setCartItems((prev) => [...prev, item]);
-        console.log('cartItems');
       }
     } catch (error) {
       alert('Не удалось добавить в корзину');
@@ -75,7 +74,7 @@ function App() {
   };
 
   return (
-    <AppContext.Provider value={{ favorit, isItemAdd, cartItems, setOpenCart }}>
+    <AppContext.Provider value={{ favorit, isItemAdd, cartItems, setOpenCart, setCartItems }}>
       <div className="wrapper clear">
         {openCart && (
           <Drawer

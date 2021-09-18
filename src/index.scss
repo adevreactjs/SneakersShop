@@ -135,6 +135,7 @@ header {
         line-height: 27px;
       }
       span {
+        text-align: center;
         font-family: Inter;
         font-style: normal;
         font-weight: normal;
@@ -146,12 +147,16 @@ header {
     }
     .greenButton {
       position: relative;
+
+     
+
     img {
       position: absolute;
       top: 21px;
       left: 30px;
     }
   }
+  
   }
 
   .cartTotalBlock {
@@ -159,6 +164,7 @@ header {
     width: 325px;
     bottom: 20px;
 
+    
     li {
       align-items: flex-end;
     }
@@ -174,6 +180,10 @@ header {
 
     .greenButton {
       position: relative;
+
+      &:disabled {
+        background-color: #bebebe;
+      }
 
       &:hover {
         img {
