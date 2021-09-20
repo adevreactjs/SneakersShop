@@ -7,7 +7,7 @@ function Info({title, description, image}) {
   return (
     <div className="emptyCart">
       <img className="box" width={120} height={120} src={image} alt="img" />
-      <div class="emptyCart--title">
+      <div className="emptyCart--title">
         <p>{title}</p>
         <span>{description}</span>
       </div>

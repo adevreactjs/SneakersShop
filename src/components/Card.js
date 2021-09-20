@@ -14,8 +14,8 @@ function Card({ title, price, urlImage, onPlus, addToFavorite, favorited, id }) 
     addToFavorite({ title, price, urlImage, id });
     setFavorite(!onFavorite);
   };
-
   return (
+
     <div className="card">
       <img
         onClick={favoriteClick}
@@ -29,13 +29,13 @@ function Card({ title, price, urlImage, onPlus, addToFavorite, favorited, id }) 
           <p>Цена:</p>
           <b>{price} руб.</b>
         </div>
-        <img
-          onClick={addCard}
-          width={32}
-          height={32}
-          src={isItemAdd(id) ? '/img/addToCart-btn.svg' : '/img/plus.svg'}
-          alt="plus"
-        />
+        {onPlus && <img
+            onClick={addCard}
+            width={32}
+            height={32}
+            src={isItemAdd(id) ? '/img/addToCart-btn.svg' : '/img/plus.svg'}
+            alt="plus"
+          />}
       </div>
     </div>
   );

@@ -9,6 +9,8 @@ function Drawer({ onClose, items, removeItem }) {
 
   const [isOrderComplete, setIsOrderComplete] = React.useState(false);
   const [isLoading, setIsLoading] = React.useState(false)
+  const totalPrice = cartItems.reduce((sum, obj) => obj.price + sum, 0)
+
 
   const onClickOrderComplete = async () => {
     try {
@@ -60,12 +62,12 @@ function Drawer({ onClose, items, removeItem }) {
                 <li className="d-flex mb-20">
                   <span>Итого: </span>
                   <div></div>
-                  <b>21 498 руб. </b>
+                  <b>{totalPrice} руб. </b>
                 </li>
                 <li className="d-flex">
                   <span>Налог 5%: </span>
                   <div></div>
-                  <b>1074 руб. </b>
+                  <b>{totalPrice /100 * 5} руб. </b>
                 </li>
                 <button disabled={isLoading} onClick={onClickOrderComplete} className="greenButton">
                   Оформить заказ <img src="/img/arrow.svg" alt="arrow" />{' '}
@@ -91,22 +93,4 @@ function Drawer({ onClose, items, removeItem }) {
 
 export default Drawer;
 
-{
-  /* <div className="items">
-<ul className="cartTotalBlock">
-  <li className="d-flex mb-20">
-    <span>Итого: </span>
-    <div></div>
-    <b>21 498 руб. </b>
-  </li>
-  <li className="d-flex">
-    <span>Налог 5%: </span>
-    <div></div>
-    <b>1074 руб. </b>
-  </li>
-  <button className="greenButton">
-    Оформить заказ <img src="/img/arrow.svg" alt="arrow" />{' '}
-  </button>
-</ul>
-</div> */
-}
+

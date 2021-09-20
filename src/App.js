@@ -6,6 +6,8 @@ import Home from './pages/Home';
 import Favorit from './pages/Favorit';
 import { Route } from 'react-router-dom';
 import AppContext from './components/context';
+import Orders from './pages/Orders';
+
 
 function App() {
   const [items, setItems] = React.useState([]);
@@ -100,6 +102,10 @@ function App() {
 
         <Route path="/favorit" exact>
           <Favorit addToFavorite={addToFavorite} setFavorit={setFavorit} />
+        </Route>
+
+        <Route path='/orders' exact>
+          <Orders/>
         </Route>
       </div>
     </AppContext.Provider>
