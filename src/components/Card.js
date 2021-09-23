@@ -7,7 +7,7 @@ function Card({ title, price, urlImage, onPlus, addToFavorite, favorited, id }) 
   const {isItemAdd} = useContext(AppContext)
 
   const addCard = () => {
-    onPlus({ id, title, price, urlImage });
+    onPlus({ id, title, price, urlImage, perentId:id });
   };
 
   const favoriteClick = () => {
@@ -17,11 +17,11 @@ function Card({ title, price, urlImage, onPlus, addToFavorite, favorited, id }) 
   return (
 
     <div className="card">
-      <img
+      {addToFavorite && <img
         onClick={favoriteClick}
         src={onFavorite ? '/img/heart-liked.png' : '/img/heart-unliked.png'}
         alt="heart-liked"
-      />
+      />}
       <img width="100%" height={135} src={urlImage} alt="cross" />
       <h5>{title}</h5>
       <div className="d-flex justify-between align-center">

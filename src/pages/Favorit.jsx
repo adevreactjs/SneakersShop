@@ -15,7 +15,7 @@ const {favorit} = React.useContext(AppContext)
           key={obj.id} 
           title={obj.title} 
           price={obj.price} 
-          urlImage={obj.urlImage} f
+          urlImage={obj.urlImage} 
           favorited={true} 
           addToFavorite={addToFavorite}
           {...obj} />
