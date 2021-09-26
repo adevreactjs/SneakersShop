@@ -19,7 +19,7 @@ function Card({ title, price, urlImage, onPlus, addToFavorite, favorited, id }) 
     <div className="card">
       {addToFavorite && <img
         onClick={favoriteClick}
-        src={onFavorite ? '/img/heart-liked.png' : '/img/heart-unliked.png'}
+        src={onFavorite ? 'img/heart-liked.png' : 'img/heart-unliked.png'}
         alt="heart-liked"
       />}
       <img width="100%" height={135} src={urlImage} alt="cross" />
@@ -33,7 +33,7 @@ function Card({ title, price, urlImage, onPlus, addToFavorite, favorited, id }) 
             onClick={addCard}
             width={32}
             height={32}
-            src={isItemAdd(id) ? '/img/addToCart-btn.svg' : '/img/plus.svg'}
+            src={isItemAdd(id) ? 'img/addToCart-btn.svg' : 'img/plus.svg'}
             alt="plus"
           />}
       </div>
