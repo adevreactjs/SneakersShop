@@ -88,7 +88,7 @@ function App() {
         )}
           <Header openCart={() => setOpenCart(true)} />
 
-        <Route path="/" exact>
+        <Route path="/SneakersShop" exact>
           <Home
             items={items}
             searchValue={searchValue}

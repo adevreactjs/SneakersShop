@@ -13,7 +13,7 @@ function Info({title, description, image}) {
       </div>
 
       <button onClick={()=> setOpenCart(false)} className="greenButton">
-        <img className="arrow" src="/img/arrow-back.png" alt="arrow" /> Вернуться назад
+        <img className="arrow" src="img/arrow-back.png" alt="arrow" /> Вернуться назад
       </button>
     </div>
   );
