@@ -2,10 +2,8 @@
   "name": "react-sneakers",
   "version": "0.1.0",
   "private": true,
-<<<<<<< HEAD
   "homepage": "https://adevreactjs.github.io/SneakersShop/",
-=======
->>>>>>> parent of ddfad87... git page
+
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
